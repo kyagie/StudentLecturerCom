@@ -21,8 +21,8 @@
         <div class="navlinks">
         <ul class="links">
         <li><a href="{% url 'index' %}">Home</a></li>
-        <li><a href="/accounts/login/">Sign in</a></li>
-        <li><a href="/register/">Sign up</a></li>
+        <li><a href="/accounts/login/">Sign In</a></li>
+        <li><a href="/register/">Sign Up</a></li>
         </ul>
         </div>
         </div>
@@ -45,12 +45,6 @@
      <br/>
       <input type="password" name="password2" placeholder="Password Confirmation">
      <br/>
-     <table>
-       <tr>
-        <td>{{ form.groups.label_tag }}</td>
-        <td>{{ form.groups }}</td>
-      </tr>
-      </table>
      </div>
       <input type="submit" value="Register" />
       </form>
