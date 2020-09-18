@@ -33,17 +33,17 @@
        <form method="POST">
       {% csrf_token %}
      <div class="inputdiv">
-     <input type="text" name="username" placeholder="Your username">
+     <input required type="text" name="username" placeholder="Your username">
      <br/>
-        <input type="text" name="first_name" placeholder="Your First Name">
+        <input required type="text" name="first_name" placeholder="Your First Name">
      <br/>
-        <input type="text" name="last_name" placeholder="Your Last Name">
+        <input required type="text" name="last_name" placeholder="Your Last Name">
      <br/>   
-     <input type="text" name="email" placeholder="Your Email">
+     <input required type="email" name="email" placeholder="Your Email">
      <br/>
-      <input type="password" name="password1" placeholder="Password">
+      <input required type="password" name="password1" placeholder="Password">
      <br/>
-      <input type="password" name="password2" placeholder="Password Confirmation">
+      <input required type="password" name="password2" placeholder="Password Confirmation">
      <br/>
      </div>
       <input type="submit" value="Register" />
