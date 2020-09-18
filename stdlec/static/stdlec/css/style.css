@@ -1,3 +1,80 @@
+
 .main{
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    margin: 0 11em;
+    font-family: 'Roboto Condensed', sans-serif;
 }
+.pagedesc{
+    border: 1px solid green;
+    height: 10em;
+    margin: 5em 15em;
+
+}
+.covid{
+    border: 1px solid green;
+    height: 50em;
+    margin: 5em 15em;
+}
+.nav-bar{
+    display: flex;
+    height: 5em;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(166, 166, 211);
+}
+.links{
+    list-style-type: none;
+    margin: 29px 0;
+}
+.links li{
+    display: inline;
+    padding: 5px 15px;
+    font-size: 20px;
+}
+.links li a{
+    text-decoration: none;
+
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 80.6%;
+  }
+  
+  .sticky + .content {
+    padding-top: 102px;
+  }
+
+  input[type=text] {
+      width: 100%;
+    padding: 20px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid red;
+    font-family: 'Roboto Condensed', sans-serif;
+
+  }
+  input[type=password] {
+    width: 100%;
+    padding: 20px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid red;
+    font-family: 'Roboto Condensed', sans-serif;
+
+  }
+  input[type=submit] {
+    width: 20%;
+    height: 4em;
+    font-family: 'Roboto Condensed', sans-serif;
+    float: right;
+  }
+  .signin{
+    text-align: center;
+  }
+  .formd{
+        margin: 0 auto;
+        width: 50%;
+  }

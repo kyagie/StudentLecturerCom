@@ -2,16 +2,74 @@
 {% load static %}
 <html lang="en">
     <head>
+      {% block title %}<title>Index</title>{% endblock %}
         <meta charset="UTF-8">
-        <title>Index</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}">
     </head>
     <body>
+      {% block main %}
         <div class="main">
-        <h1>Lecturer Student Interaction Platform</h1>
-            <div class="">
-              <h4>Welcome</h4> 
+        {% comment %} Navbar start  {% endcomment %}
+        {% block top %}
+        <div class="nav-bar" id="navbar">
+            <div class="title">
+            <h1>Lecturer Student Interaction Platform</h1>
+            </div>
+        <div class="navlinks">
+        <ul class="links">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="/accounts/login/">Signin</a></li>
+        <li><a href="/register/">Sign up</a></li>
+        </ul>
+        </div>
+        </div>
+        {% endblock %}
+</body>
+        {% comment %} Navbar end  {% endcomment %}
+        {% comment %} Page Description  {% endcomment %}
+      {% block pagedesc %}
+            <div class="container">
+                <div class="pagedesc">
+                
+                </div>
             </div>  
+        {% endblock %}
+
+        {% comment %} end Page Description  {% endcomment %}
+
+                {% comment %} Covid area  {% endcomment %}
+      {% block pagecovid %}
+
+            <div class="container">
+                <div class="covid">
+                
+                </div>
+            </div>  
+        {% endblock %}
+
+        {% comment %} end Covid area {% endcomment %}
+
     </div>
+    {% endblock %}
+
+
+<script>
+window.onscroll = function() {scroll()};
+
+var header = document.getElementById("navbar");
+var sticky = header.offsetTop;
+
+function scroll() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
     </body>
 </html>

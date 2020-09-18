@@ -1,35 +1,49 @@
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block title %}<title>Sign In</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
 
-  {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-  {% endif %}
-  
-  {% if next %}
-    {% if user.is_authenticated %}
-      <p>Your account doesn't have access to this page. To proceed,
-      please login with an account that has access.</p>
-    {% else %}
-      <p>Please login to see this page.</p>
-    {% endif %}
-  {% endif %}
-  
-  <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <table>
-      <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-      </tr>
-    </table>
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{{ next }}" />
-  </form>
-  
-  {# Assumes you setup the password_reset view in your URLconf #}
-  <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
-  
+    <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}">
+</head>
+    <body>
+    {% block main %}
+        <div class="main">
+        {% comment %} Navbar start  {% endcomment %}
+        {% block top %}
+        <div class="nav-bar" id="navbar">
+            <div class="title">
+            <h1>Lecturer Student Interaction Platform</h1>
+            </div>
+        <div class="navlinks">
+        <ul class="links">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="/accounts/login/">Sign in</a></li>
+        <li><a href="/register/">Sign up</a></li>
+        </ul>
+        </div>
+        </div>
+        {% endblock %}
+  <div class="fmain">
+    <h1 class="signin"> Sign in</h1>
+    <div class="formd">
+       <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+     <div class="inputdiv">
+     <input type="text" name="username" placeholder="Your username">
+     <br/>
+     <input type="password" name="password" placeholder="Your password">
+     </div>
+      <input type="submit" value="Login" />
+      </form>
+    </div>
+  <div>
+  {% comment %} <p><a href="{% url 'password_reset' %}">Reset Password</a></p> {% endcomment %}
+  </div>
+  </div>
 {% endblock %}
+</body>
+</html>
