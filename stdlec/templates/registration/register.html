@@ -3,7 +3,37 @@
 {% block content %}
     <form method="POST" class="form-group">
 	{% csrf_token %}
-	{{ form }}
+	{% comment %} {{ form }} {% endcomment %}
+     <table>
+      <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+      </tr>
+        <tr>
+        <td>{{ form.first_name.label_tag }}</td>
+        <td>{{ form.first_name }}</td>
+      </tr>
+       <tr>
+        <td>{{ form.last_name.label_tag }}</td>
+        <td>{{ form.last_name }}</td>
+      </tr>
+        <tr>
+        <td>{{ form.email.label_tag }}</td>
+        <td>{{ form.email }}</td>
+      </tr>
+              <tr>
+        <td>{{ form.password1.label_tag }}</td>
+        <td>{{ form.password1 }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password2.label_tag }}</td>
+        <td>{{ form.password2 }}</td>
+      </tr>
+       <tr>
+        <td>{{ form.groups.label_tag }}</td>
+        <td>{{ form.groups }}</td>
+      </tr>
+    </table>
 	<button type="submit" >Register</button>
     </form>
 {% endblock %}

@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.template import loader
+from django.http import HttpResponse
 from .forms import RegisterForm
 
 # Create your views here.
@@ -12,8 +14,13 @@ def register(response):
 	    if form.is_valid():
 	        form.save()
 
-	    return redirect("/")
+	    return redirect("/accounts/login/")
     else:
 	    form = RegisterForm()
 
     return render(response, "registration/register.html", {"form":form})
+
+
+def index(request):
+    template = loader.get_template('index.html')
+    return HttpResponse(template.render())
