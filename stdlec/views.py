@@ -24,3 +24,7 @@ def register(response):
 def index(request):
     template = loader.get_template('index.html')
     return HttpResponse(template.render())
+
+def landing(request):
+    template = loader.get_template('landing.html')
+    return HttpResponse(template.render())
