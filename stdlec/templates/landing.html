@@ -5,13 +5,32 @@
       {% block title %}<title>Landing</title>{% endblock %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}">
     </head>
     <body>
-    <h1>Landing Page</h1>
+        {% block content %}
+        <div class="main">
+            <div class="nav-bar" id="navbar">
+            <div class="title">
+            <h1>Lecturer Student Interaction Platform</h1>
+            </div>
+            <div class="navlinks">
+             <ul class="links">
+              <li><a href="{% url 'landing' %}">Home</a></li>
+               {% if user.is_authenticated %}
+              <li><a href="{% url 'index' %}">Profile</a></li>
+                <li>{{ user.get_username }}</li>
+                <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li> 
+
+                 {% else %}
+
+            <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>     
+             {% endif %} 
+            </ul>
+        </div>
+        </div>
+        {% endblock %}
     </body>
-    </body>
+
 </html>
