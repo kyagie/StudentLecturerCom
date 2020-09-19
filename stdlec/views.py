@@ -3,6 +3,8 @@ from django.template import loader
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from .forms import RegisterForm
+from django.views.decorators.cache import cache_page
+from django.views.decorators.csrf import csrf_protect
 
 # Create your views here.
 # views.py
@@ -21,6 +23,16 @@ def register(response):
 
     return render(response, "registration/register.html", {"form":form})
 
+def loginn(request):
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return redirect("landing/")
+    else:
+        return HttpResponse("User not found")
+          # Return an 'invalid login' error message.
 
 def index(request):
     template = loader.get_template('index.html')
