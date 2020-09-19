@@ -1,58 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
- {% block title %}<title>Sign Up</title>{% endblock %}
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% load static %}
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}">
-</head>
- <body>
-   {% block main %}
-        <div class="main">
-        {% comment %} Navbar start  {% endcomment %}
-        {% block top %}
-        <div class="nav-bar" id="navbar">
-            <div class="title">
-            <h1>Lecturer Student Interaction Platform</h1>
-            </div>
+  <head>
+    {% block title %}
+    <title>Sign Up</title>
+    {% endblock %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="nav-bar" id="navbar">
+        <div class="title">
+          <h1>Lecturer Student Interaction Platform</h1>
+        </div>
         <div class="navlinks">
-        <ul class="links">
-        <li><a href="{% url 'index' %}">Home</a></li>
-        <li><a href="/accounts/login/">Sign In</a></li>
-        <li><a href="/register/">Sign Up</a></li>
-        </ul>
+          <ul class="links">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="/accounts/login/">Sign In</a></li>
+            <li><a href="/register/">Sign Up</a></li>
+          </ul>
         </div>
+      </div>
+
+      <div class="fmain">
+        <h1 class="signin">Sign Up</h1>
+        <div class="formd">
+          <form method="POST">
+            {% csrf_token %}
+            <div class="inputdiv">
+              <input
+                required
+                type="text"
+                name="username"
+                placeholder="Your username"
+              />
+              <br />
+              <input
+                required
+                type="text"
+                name="first_name"
+                placeholder="Your First Name"
+              />
+              <br />
+              <input
+                required
+                type="text"
+                name="last_name"
+                placeholder="Your Last Name"
+              />
+              <br />
+              <input
+                required
+                type="email"
+                name="email"
+                placeholder="Your Email"
+              />
+              <br />
+              <input
+                required
+                type="password"
+                name="password1"
+                placeholder="Password"
+              />
+              <br />
+              <input
+                required
+                type="password"
+                name="password2"
+                placeholder="Password Confirmation"
+              />
+              <br />
+            </div>
+            <input type="submit" value="Register" />
+          </form>
         </div>
-        {% endblock %}
-  <div class="fmain">
-    <h1 class="signin"> Sign Up</h1>
-    <div class="formd">
-       <form method="POST">
-      {% csrf_token %}
-     <div class="inputdiv">
-     <input required type="text" name="username" placeholder="Your username">
-     <br/>
-        <input required type="text" name="first_name" placeholder="Your First Name">
-     <br/>
-        <input required type="text" name="last_name" placeholder="Your Last Name">
-     <br/>   
-     <input required type="email" name="email" placeholder="Your Email">
-     <br/>
-      <input required type="password" name="password1" placeholder="Password">
-     <br/>
-      <input required type="password" name="password2" placeholder="Password Confirmation">
-     <br/>
-     </div>
-      <input type="submit" value="Register" />
-      </form>
+      </div>
     </div>
-  <div>
-  {% comment %} <p><a href="{% url 'password_reset' %}">Reset Password</a></p> {% endcomment %}
-  </div>
-  </div>
-{% endblock %}
- </body>
-</html> 
+  </body>
+</html>

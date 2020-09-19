@@ -1,58 +1,67 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-    <head>
-      {% block title %}<title>Landing</title>{% endblock %}
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}">
-    </head>
-    <body>
-   {% block main %}
-
-        <div class="main">
-        {% block content %}
-            <div class="nav-bar" id="navbar">
-            <div class="title">
-            <h1>Lecturer Student Interaction Platform</h1>
-            </div>
-            <div class="navlinks">
-             <ul class="links">
-              <li><a href="{% url 'landing' %}">Home</a></li>
-               {% if user.is_authenticated %}
-              <li><a href="{% url 'index' %}">Profile</a></li>
-                <li>{{ user.get_username }}</li>
-                <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li> 
-
-                 {% else %}
-
-            <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>     
-             {% endif %} 
-            </ul>
+  <head>
+    {% block title %}
+    <title>Landing</title>
+    {% endblock %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="nav-bar" id="navbar">
+        <div class="title">
+          <h1>Lecturer Student Interaction Platform</h1>
         </div>
-        {% endblock %}
-
+        <div class="navlinks">
+          <ul class="links">
+            <li><a href="{% url 'landing' %}">Home</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'index' %}">Profile</a></li>
+            <li>{{ user.get_username }}</li>
+            <li>
+              <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+            </li>
+            {% else %}
+            <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+            {% endif %}
+          </ul>
         </div>
-        <div>
-        <div class="formd">
-       <form method="POST">
-             {% csrf_token %}  
-     <div class="inputdiv">
-        <input required type="text" name="subject" placeholder="Email Subject">
-     <br/>
-        <input required type="text" name="message" placeholder="Email Message">
-     <br/>   
-     <input required type="email" name="receiver" placeholder="Lecturer Email">
-     </div>
-      <input type="submit" value="Send" />
-      </form>
+      </div>
+      <div class="formd">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="inputdiv">
+            <input
+              required
+              type="text"
+              name="subject"
+              placeholder="Email Subject"
+            />
+            <br />
+            <input
+              required
+              type="text"
+              name="message"
+              placeholder="Email Message"
+            />
+            <br />
+            <input
+              required
+              type="email"
+              name="receiver"
+              placeholder="Lecturer Email"
+            />
+          </div>
+          <input type="submit" value="Send" />
+        </form>
+      </div>
     </div>
-        </div>
-
-        {% endblock %}
-
-
-    </body>
-
+  </body>
 </html>

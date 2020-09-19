@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  {% block title %}<title>Sign In</title>{% endblock %}
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% load static %}
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}">
-</head>
-    <body>
-    {% block main %}
-        <div class="main">
-        {% comment %} Navbar start  {% endcomment %}
-        {% block top %}
-        <div class="nav-bar" id="navbar">
-            <div class="title">
-            <h1>Lecturer Student Interaction Platform</h1>
-            </div>
+  <head>
+    {% block title %}
+    <title>Sign In</title>
+    {% endblock %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="nav-bar" id="navbar">
+        <div class="title">
+          <h1>Lecturer Student Interaction Platform</h1>
+        </div>
         <div class="navlinks">
-        <ul class="links">
-        <li><a href="{% url 'index' %}">Home</a></li>
-        <li><a href="/accounts/login/">Sign In</a></li>
-        <li><a href="/register/">Sign Up</a></li>
-        </ul>
+          <ul class="links">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="/accounts/login/">Sign In</a></li>
+            <li><a href="/register/">Sign Up</a></li>
+          </ul>
         </div>
-        </div>
-        {% endblock %}
-  <div class="fmain">
-    <h1 class="signin"> Sign in</h1>
-    <div class="formd">
-       <form method="post" action="{% url 'login' %}">
-      {% csrf_token %}
-     <div class="inputdiv">
-     <input type="text" name="username" placeholder="Your username">
-     <br/>
-     <input type="password" name="password" placeholder="Your password">
-     </div>
-      <input type="submit" value="Login" />
-      </form>
+      </div>
     </div>
-  <div>
-  {% comment %} <p><a href="{% url 'password_reset' %}">Reset Password</a></p> {% endcomment %}
-  </div>
-  </div>
-{% endblock %}
-</body>
+    <div class="fmain">
+      <h1 class="signin">Sign in</h1>
+      <div class="formd">
+        <forv method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+          <div class="inputdiv">
+            <input type="text" name="username" placeholder="Your username" />
+            <br />
+            <input
+              type="password"
+              name="password"
+              placeholder="Your password"
+            />
+          </div>
+          <input type="submit" value="Login" />
+        </forv>
+      </div>
+    </div>
+  </body>
 </html>

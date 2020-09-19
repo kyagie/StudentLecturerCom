@@ -1,75 +1,57 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-    <head>
-      {% block title %}<title>Index</title>{% endblock %}
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}">
-    </head>
-    <body>
-      {% block main %}
-        <div class="main">
-        {% comment %} Navbar start  {% endcomment %}
-        {% block top %}
-        <div class="nav-bar" id="navbar">
-            <div class="title">
-            <h1>Lecturer Student Interaction Platform</h1>
-            </div>
-        <div class="navlinks">
-        <ul class="links">
-        <li><a href="{% url 'index' %}">Home</a></li>
-        <li><a href="/accounts/login/">Sign In</a></li>
-        <li><a href="/register/">Sign Up</a></li>
-         <li><a href="/admin/">Student Management</a></li>
-        </ul>
-        </div>
-        </div>
-        {% endblock %}
-         {% comment %} Navbar end  {% endcomment %}
-        {% comment %} Page Description  {% endcomment %}
-      {% block pagedesc %}
-            <div class="container">
-                <div class="pagedesc">
-                
-                </div>
-            </div>  
-        {% endblock %}
-
-        {% comment %} end Page Description  {% endcomment %}
-
-                {% comment %} Covid area  {% endcomment %}
-      {% block pagecovid %}
-
-            <div class="container">
-                <div class="covid">
-                
-                </div>
-            </div>  
-        {% endblock %}
-
-        {% comment %} end Covid area {% endcomment %}
-
-    </div>
+  <head>
+    {% block title %}
+    <title>Index</title>
     {% endblock %}
-</body>
-       
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="nav-bar" id="navbar">
+        <div class="title">
+          <h1>Lecturer Student Interaction Platform</h1>
+        </div>
+        <div class="navlinks">
+          <ul class="links">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="/accounts/login/">Sign In</a></li>
+            <li><a href="/register/">Sign Up</a></li>
+            <li><a href="/admin/">Student Management</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container">
+        <div class="pagedesc"></div>
+      </div>
 
+      <div class="container">
+        <div class="covid"></div>
+      </div>
+    </div>
+  </body>
 
-<script>
-window.onscroll = function() {scroll()};
+  <script>
+    window.onscroll = function () {
+      scroll();
+    };
 
-var header = document.getElementById("navbar");
-var sticky = header.offsetTop;
+    var header = document.getElementById("navbar");
+    var sticky = header.offsetTop;
 
-function scroll() {
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
-</script>
-    </body>
+    function scroll() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+  </script>
 </html>
