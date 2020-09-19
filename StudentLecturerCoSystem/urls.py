@@ -26,3 +26,8 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('landing/', views.landing, name="landing"),
 ]
+
+
+admin.site.site_header = "Student Lecturer Portal"
+admin.site.site_title = "Student Lecturer Portal"
+admin.site.index_title = "Student Lecturer Portal"

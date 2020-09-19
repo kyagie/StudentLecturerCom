@@ -22,47 +22,48 @@
         <div class="navlinks">
           <ul class="links">
             <li><a href="{% url 'landing' %}">Home</a></li>
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'index' %}">Profile</a></li>
-            <li>{{ user.get_username }}</li>
             <li>
               <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
             </li>
-            {% else %}
-              <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
-            <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-            {% endif %}
           </ul>
         </div>
       </div>
-      <div class="formd">
-        <form method="POST">
-          {% csrf_token %}
-          <div class="inputdiv">
-            <input
-              required
-              type="text"
-              name="subject"
-              placeholder="Email Subject"
-            />
-            <br />
-            <input
-              required
-              type="text"
-              name="message"
-              placeholder="Email Message"
-            />
-            <br />
-            <input
-              required
-              type="email"
-              name="receiver"
-              placeholder="Lecturer Email"
-            />
-          </div>
-          <input type="submit" value="Send" />
-        </form>
-      </div>
+ <div class="formd">
+           <form method="POST">
+            {% csrf_token %}
+            <div class="inputdiv">
+              <input
+                required
+                type="text"
+                name="subject"
+                placeholder="Subject"
+              />
+              <br />
+              <input
+                required
+                type="text"
+                name="message"
+                placeholder="Message"
+              />  
+              <br />
+              <input
+                required
+                type="email"
+                name="sender"
+                placeholder="Sender Email"
+              />
+              <br />
+              <input
+                required
+                type="email"
+                name="recipient"
+                placeholder="Recipient Email"
+              />
+              <br />
+            </div>
+            <input type="submit" value="Send Email" />
+          </form>
+        </div>
     </div>
   </body>
 </html>

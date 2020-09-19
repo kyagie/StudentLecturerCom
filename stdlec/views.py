@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
-from .forms import RegisterForm
-from django.views.decorators.cache import cache_page
-from django.views.decorators.csrf import csrf_protect
+from .forms import RegisterForm, SendEmailForm
+from django.core.mail import send_mail
+
 
 # Create your views here.
 # views.py
@@ -41,3 +41,19 @@ def index(request):
 def landing(request):
     template = loader.get_template('landing.html')
     return HttpResponse(template.render())
+
+def sendemail(request):
+    if response.method == "POST":
+        form = SendEmailForm(response.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            sender = form.cleaned_data['sender']    
+            recipients = form.cleaned_data['recipient']
+            
+            send_mail(subject, message, sender, recipients)
+            return HttpResponseRedirect('/thanks/')
+    else:
+	    form = SendEmailForm()
+
+    return render(response, "landing.html", {"form":form})
