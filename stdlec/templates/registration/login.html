@@ -31,7 +31,7 @@
     <div class="fmain">
       <h1 class="signin">Sign in</h1>
       <div class="formd">
-        <forv method="post" action="{% url 'login' %}">
+        <form method="post" action="{% url 'login' %}">
           {% csrf_token %}
           <div class="inputdiv">
             <input type="text" name="username" placeholder="Your username" />
@@ -43,7 +43,7 @@
             />
           </div>
           <input type="submit" value="Login" />
-        </forv>
+        </form>
       </div>
     </div>
   </body>

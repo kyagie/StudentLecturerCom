@@ -25,6 +25,4 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', views.index, name="index"),
     path('landing/', views.landing, name="landing"),
-    path('mail', views.mail, name="mail"),
-
 ]
