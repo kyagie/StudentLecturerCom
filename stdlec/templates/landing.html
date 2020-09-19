@@ -9,8 +9,10 @@
         <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}">
     </head>
     <body>
-        {% block content %}
+   {% block main %}
+
         <div class="main">
+        {% block content %}
             <div class="nav-bar" id="navbar">
             <div class="title">
             <h1>Lecturer Student Interaction Platform</h1>
@@ -29,8 +31,28 @@
              {% endif %} 
             </ul>
         </div>
-        </div>
         {% endblock %}
+
+        </div>
+        <div>
+        <div class="formd">
+       <form method="POST">
+             {% csrf_token %}  
+     <div class="inputdiv">
+        <input required type="text" name="subject" placeholder="Email Subject">
+     <br/>
+        <input required type="text" name="message" placeholder="Email Message">
+     <br/>   
+     <input required type="email" name="receiver" placeholder="Lecturer Email">
+     </div>
+      <input type="submit" value="Send" />
+      </form>
+    </div>
+        </div>
+
+        {% endblock %}
+
+
     </body>
 
 </html>
