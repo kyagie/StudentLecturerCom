@@ -3,7 +3,7 @@ from django.template import loader
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from .forms import RegisterForm, SendEmailForm
-from django.core.mail import send_mail
+from django.core.mail import BadHeaderError, send_mail
 
 
 # Create your views here.
@@ -41,19 +41,21 @@ def index(request):
 def landing(request):
     template = loader.get_template('landing.html')
     return HttpResponse(template.render())
-
-def sendemail(request):
-    if response.method == "POST":
-        form = SendEmailForm(response.POST)
+    
+def emailView(request):
+    if request.method == 'GET':
+        form = SendEmailForm()
+    else:
+        form = SendEmailForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
-            sender = form.cleaned_data['sender']    
-            recipients = form.cleaned_data['recipient']
-            
-            send_mail(subject, message, sender, recipients)
-            return HttpResponseRedirect('/thanks/')
-    else:
-	    form = SendEmailForm()
+            recipient = form.cleaned_data['recipient']
+            try:
+                send_mail(subject,message,from_email,[recipient])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found')
+            return redirect('landing')
+    return render(request, "email.html", {'form': form})
 
-    return render(response, "landing.html", {"form":form})

@@ -12,10 +12,10 @@ class RegisterForm(UserCreationForm):
 
 
 class SendEmailForm(forms.Form):
-    subject = forms.CharField(max_length=100)
-    message = forms.CharField(widget=forms.Textarea)
-    sender = forms.EmailField()
-    recipient = forms.EmailField()
+    subject = forms.CharField(max_length=100, required=True)
+    message = forms.CharField(widget=forms.Textarea, required=True)
+    recipient = forms.EmailField(required=True)
+    from_email = forms.EmailField(required=True)
+    
 
-    class Meta:
-        fields = ["subject", "message", "sender", "recipient"]
+   
