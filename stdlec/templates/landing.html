@@ -1,69 +1,33 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
-    {% block title %}
-    <title>Landing</title>
-    {% endblock %}
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}" />
-  </head>
-  <body>
-    <div class="main">
-      <div class="nav-bar" id="navbar">
-        <div class="title">
-          <h1>Lecturer Student Interaction Platform</h1>
-        </div>
-        <div class="navlinks">
-          <ul class="links">
-            <li><a href="{% url 'landing' %}">Home</a></li>
-            <li>
-              <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
-            </li>
-          </ul>
-        </div>
+
+<head>
+  {% block title %}
+  <title>Landing</title>
+  {% endblock %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}" />
+</head>
+
+<body>
+  <div class="main">
+    <div class="nav-bar" id="navbar">
+      <div class="title">
+        <h1>Lecturer Student Interaction Platform</h1>
       </div>
- <div class="formd">
-           <form method="POST">
-            {% csrf_token %}
-            <div class="inputdiv">
-              <input
-                required
-                type="text"
-                name="subject"
-                placeholder="Subject"
-              />
-              <br />
-              <input
-                required
-                type="text"
-                name="message"
-                placeholder="Message"
-              />  
-              <br />
-              <input
-                required
-                type="email"
-                name="sender"
-                placeholder="Sender Email"
-              />
-              <br />
-              <input
-                required
-                type="email"
-                name="recipient"
-                placeholder="Recipient Email"
-              />
-              <br />
-            </div>
-            <input type="submit" value="Send Email" />
-          </form>
-        </div>
+      <div class="navlinks">
+        <ul class="links">
+          <li><a href="{% url 'landing' %}">Home</a></li>
+          <li>
+            <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

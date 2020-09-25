@@ -13,9 +13,8 @@ class RegisterForm(UserCreationForm):
 
 class SendEmailForm(forms.Form):
     subject = forms.CharField(max_length=100, required=True)
-    message = forms.CharField(widget=forms.Textarea, required=True)
-    recipient = forms.EmailField(required=True)
-    from_email = forms.EmailField(required=True)
+    message = forms.CharField(required=True)
+    recipient_list = forms.EmailField()
     
 
    

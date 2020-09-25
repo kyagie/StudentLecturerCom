@@ -49,11 +49,10 @@ def emailView(request):
         form = SendEmailForm(request.POST)
         if form.is_valid():
             subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
-            recipient = form.cleaned_data['recipient']
+            recipient_list = form.cleaned_data['recipient_list']
             try:
-                send_mail(subject,message,from_email,[recipient])
+                send_mail(subject, message, recipient_list, fail_silently=True,)
             except BadHeaderError:
                 return HttpResponse('Invalid header found')
             return redirect('landing')
