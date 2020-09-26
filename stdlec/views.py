@@ -3,7 +3,7 @@ from django.template import loader
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from .forms import RegisterForm, SendEmailForm
-from django.core.mail import BadHeaderError, send_mail
+from django.core.mail import BadHeaderError, send_mail, EmailMessage
 
 
 # Create your views here.
@@ -46,13 +46,16 @@ def emailView(request):
     if request.method == 'GET':
         form = SendEmailForm()
     else:
-        form = SendEmailForm(request.POST)
+        form = SendEmailForm(request.POST, request.FILES)
         if form.is_valid():
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
             recipient_list = form.cleaned_data['recipient_list']
+            file = form.files['attachment']
             try:
-                send_mail(subject, message, recipient_list, fail_silently=True,)
+                mail = EmailMessage('Subject', 'Message', 'arthurkyagulanyi291@gmail.com', [recipient_list],)
+                mail.attach(file.name, file.read(), file.content_type)
+                mail.send()
             except BadHeaderError:
                 return HttpResponse('Invalid header found')
             return redirect('landing')

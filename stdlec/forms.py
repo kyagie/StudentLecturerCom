@@ -15,6 +15,8 @@ class SendEmailForm(forms.Form):
     subject = forms.CharField(max_length=100, required=True)
     message = forms.CharField(required=True)
     recipient_list = forms.EmailField()
+    attachment = forms.FileField()
+
     
 
    

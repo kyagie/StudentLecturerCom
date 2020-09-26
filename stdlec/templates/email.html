@@ -3,17 +3,55 @@
 
 <head>
 
+    {% block title %}
+    <title>Sign Up</title>
+    {% endblock %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}" />
 </head>
 
 <body>
-    <h1>Contact Us</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="form-actions">
-            <button type="submit">Send</button>
+    <div class="main">
+        <div class="nav-bar" id="navbar">
+            <div class="title">
+                <h1>Lecturer Student Interaction Platform</h1>
+            </div>
+            <div class="navlinks">
+                <ul class="links">
+                    <li><a href="{% url 'landing' %}">Home</a></li>
+                </ul>
+            </div>
         </div>
-    </form>
+        <div class="fmain">
+            <h1 class="signin">Send Email</h1>
+            <div class="formd">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="inputdiv">
+                        <input required type="text" name="subject" placeholder="Subject" />
+                        <br />
+                        <input required type="text" name="message" placeholder="Your Message" />
+                        <br />
+                        <input required type="email" name="recipient_list" placeholder="Lecturer Email" />
+
+                        <input required type="file" name="attachment" placeholder="Attach File" />
+                    </div>
+                    <input type="submit" value="Send Email" />
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
+
+<!-- <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="form-actions">
+        <button type="submit">Send</button>
+    </div>
+</form> -->
