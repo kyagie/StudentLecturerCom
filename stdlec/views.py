@@ -8,10 +8,6 @@ from django.core.mail import BadHeaderError, send_mail, EmailMessage
 
 
 # Create your views here.
-# views.py
-
-
-# Create your views here.
 def loginn(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
@@ -21,7 +17,6 @@ def loginn(request):
         return redirect("landing/")
     else:
         return HttpResponse("User not found")
-          # Return an 'invalid login' error message.
 
 def index(request):
     template = loader.get_template('index.html')
@@ -86,7 +81,7 @@ def update(request, id):
     form = StudentForm(request.POST, instance=student)
     if form.is_valid():
         form.save()
-        return redirect("/students")
+        return redirect("/show")
     return render(request, 'edit.html', {'student': student})
 
 def delete(request, id):
