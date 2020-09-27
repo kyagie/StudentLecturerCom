@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from stdlec.models import Student
 
 
 class RegisterForm(UserCreationForm):
@@ -17,6 +18,10 @@ class SendEmailForm(forms.Form):
     recipient_list = forms.EmailField()
     attachment = forms.FileField()
 
+class StudentForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ["sfname", "slname", "semail", "sregno", "scourse", "scontact"]
     
 
    

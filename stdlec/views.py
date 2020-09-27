@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
-from .forms import RegisterForm, SendEmailForm
+from .forms import RegisterForm, SendEmailForm, StudentForm
+from .models import Student
 from django.core.mail import BadHeaderError, send_mail, EmailMessage
 
 
@@ -11,18 +12,6 @@ from django.core.mail import BadHeaderError, send_mail, EmailMessage
 
 
 # Create your views here.
-def register(response):
-    if response.method == "POST":
-	    form = RegisterForm(response.POST)
-	    if form.is_valid():
-	        form.save()
-
-	    return redirect("/accounts/login/")
-    else:
-	    form = RegisterForm()
-
-    return render(response, "registration/register.html", {"form":form})
-
 def loginn(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
@@ -61,3 +50,46 @@ def emailView(request):
             return redirect('landing')
     return render(request, "email.html", {'form': form})
 
+def student(response):
+    if response.method == 'POST':
+        form = StudentForm(response.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/show')
+    else:
+        form = StudentForm()
+
+    return render(response, "students.html", {"form": form})
+
+def register(response):
+    if response.method == "POST":
+	    form = RegisterForm(response.POST)
+	    if form.is_valid():
+	        form.save()
+
+	    return redirect("/accounts/login/")
+    else:
+	    form = RegisterForm()
+
+    return render(response, "registration/register.html", {"form":form})
+
+def show(request):
+    students = Student.objects.all()
+    return render(request, "show.html", {'students': students})
+
+def edit(request, id):
+    student = Student.objects.get(id=id)
+    return render(request, 'edit.html', {'student': student})
+
+def update(request, id):
+    student = Student.objects.get(id=id)
+    form = StudentForm(request.POST, instance=student)
+    if form.is_valid():
+        form.save()
+        return redirect("/students")
+    return render(request, 'edit.html', {'student': student})
+
+def delete(request, id):
+    student = Student.objects(id=id)
+    student.delete()
+    return redirect("/show")
