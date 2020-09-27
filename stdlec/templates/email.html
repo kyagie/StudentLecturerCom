@@ -25,23 +25,36 @@
                 </ul>
             </div>
         </div>
-        <div class="fmain">
-            <h1 class="signin">Send Email</h1>
-            <div class="formd">
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="inputdiv">
-                        <input required type="text" name="subject" placeholder="Subject" />
-                        <br />
-                        <input required type="text" name="message" placeholder="Your Message" />
-                        <br />
-                        <input required type="email" name="recipient_list" placeholder="Lecturer Email" />
-
-                        <input required type="file" name="attachment" placeholder="Attach File" />
-                    </div>
-                    <input type="submit" value="Send Email" />
-                </form>
-            </div>
+    </div>
+    <div class="fmain">
+        <h1 class="signin">Send Email</h1>
+        <div class="formd">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+            </ul>
+            {% endif %}
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="inputdiv">
+                    <label for="email">Email Address</label>
+                    <input required type="email" name="recipient_list" placeholder="Email" />
+                    <br />
+                    <label for="subject">Subject</label>
+                    <input required type="text" name="subject" placeholder="Subject" />
+                    <br />
+                    <label for="message">Message</label>
+                    <input required type="text" name="message" placeholder="Your Message" />
+                    <br />
+                    <label for="attachment">Attach a file</label>
+                    <br />
+                    <br />
+                    <input required type="file" name="attachment" placeholder="Attach File" />
+                </div>
+                <input type="submit" value="Send" />
+            </form>
         </div>
     </div>
 </body>

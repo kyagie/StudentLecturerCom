@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate, login
 from .forms import RegisterForm, SendEmailForm, StudentForm
 from .models import Student
 from django.core.mail import BadHeaderError, send_mail, EmailMessage
+from django.contrib import messages
+
 
 
 # Create your views here.
@@ -41,8 +43,11 @@ def emailView(request):
                 mail.attach(file.name, file.read(), file.content_type)
                 mail.send()
             except BadHeaderError:
+                messages.info(request, 'Email Not Sent!')
                 return HttpResponse('Invalid header found')
-            return redirect('landing')
+            
+            messages.info(request, 'Email Sent Successfully!')
+            return redirect('email')
     return render(request, "email.html", {'form': form})
 
 def student(response):

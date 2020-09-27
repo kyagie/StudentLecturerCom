@@ -132,3 +132,7 @@ a {
 table {
   width: 80%;
 }
+.messages{
+  list-style-type: none;
+  border: 1px solid red;
+}
