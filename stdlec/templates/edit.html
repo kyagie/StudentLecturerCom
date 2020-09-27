@@ -1,34 +1,55 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
     <title>Students</title>
+    {% endblock %}
+    <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'stdlec/css/style.css' %}" />
 </head>
 
 <body>
-    <div class="fmain">
-        <div class="formd">
-            <form method="POST" action="/update/{{ student.id }}">
-                {% csrf_token %}
-                <div class="inputdiv">
-                    <input required type="text" name="sfname" placeholder="First Name" value="{{ student.sfname }}" />
-                    <br />
-                    <input required type="text" name="slname" placeholder="Last Name" value="{{ student.slname }}" />
-                    <br />
-                    <input required type="text" name="sregno" placeholder="Registration Number"
-                        value="{{ student.sregno }}" />
-                    <br />
-                    <input required type="email" name="semail" placeholder="Email" value="{{ student.semail }}" />
-                    <br />
-                    <input required type="text" name="scontact" placeholder="Contact" value="{{ student.scourse }}" />
-                    <br />
-                    <input required type="text" name="scourse" placeholder="Course" value="{{ student.scontact }}" />
-                    <br />
-                </div>
-                <input type="submit" value="Update" />
-            </form>
+    <div class="main">
+        <div class="nav-bar" id="navbar">
+            <div class="title">
+                <h1>Lecturer Student Interaction Platform</h1>
+            </div>
+            <div class="navlinks">
+                <ul class="links">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fmain">
+            <div class="formd">
+                <form method="POST" action="/update/{{ student.id }}">
+                    {% csrf_token %}
+                    <div class="inputdiv">
+                        <input required type="text" name="sfname" placeholder="First Name"
+                            value="{{ student.sfname }}" />
+                        <br />
+                        <input required type="text" name="slname" placeholder="Last Name"
+                            value="{{ student.slname }}" />
+                        <br />
+                        <input required type="text" name="sregno" placeholder="Registration Number"
+                            value="{{ student.sregno }}" />
+                        <br />
+                        <input required type="email" name="semail" placeholder="Email" value="{{ student.semail }}" />
+                        <br />
+                        <input required type="text" name="scontact" placeholder="Contact"
+                            value="{{ student.scourse }}" />
+                        <br />
+                        <input required type="text" name="scourse" placeholder="Course"
+                            value="{{ student.scontact }}" />
+                        <br />
+                    </div>
+                    <input type="submit" value="Update" />
+                </form>
+            </div>
         </div>
     </div>
 </body>

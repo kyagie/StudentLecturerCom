@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<head>  
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet" />
@@ -11,28 +12,41 @@
 </head>
 
 <body>
-    <div class="fmain">
-        <div class="formd">
-            <form method="POST">
-                {% csrf_token %}
-                <div class="inputdiv">
-                    <input required type="text" name="sfname" placeholder="First Name" />
-                    <br />
-                    <input required type="text" name="slname" placeholder="Last Name" />
-                    <br />
-                    <input required type="text" name="sregno" placeholder="Registration Number" />
-                    <br />
-                    <input required type="email" name="semail" placeholder="Email" />
-                    <br />
-                    <input required type="text" name="scontact" placeholder="Contact" />
-                    <br />
-                    <input required type="text" name="scourse" placeholder="Course" />
-                    <br />
-                </div>
-                <input type="submit" value="Register" />
-            </form>
+    <div class="main">
+        <div class="nav-bar" id="navbar">
+            <div class="title">
+                <h1>Lecturer Student Interaction Platform</h1>
+            </div>
+            <div class="navlinks">
+                <ul class="links">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fmain">
+            <div class="formd">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="inputdiv">
+                        <input required type="text" name="sfname" placeholder="First Name" />
+                        <br />
+                        <input required type="text" name="slname" placeholder="Last Name" />
+                        <br />
+                        <input required type="text" name="sregno" placeholder="Registration Number" />
+                        <br />
+                        <input required type="email" name="semail" placeholder="Email" />
+                        <br />
+                        <input required type="number" name="scontact" placeholder="Contact" />
+                        <br />
+                        <input required type="text" name="scourse" placeholder="Course" />
+                        <br />
+                    </div>
+                    <input type="submit" value="Register" />
+                </form>
+            </div>
         </div>
     </div>
+
 </body>
 
 </html>
