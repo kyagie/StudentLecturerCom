@@ -3,6 +3,10 @@
   margin: 0 10em;
   font-family: "Roboto Condensed", sans-serif;
 }
+.fmain {
+  /* border: 1px solid red; */
+  font-family: "Roboto Condensed", sans-serif;
+}
 .pagedesc {
   border: 1px solid green;
   height: 10em;
@@ -88,6 +92,7 @@ input[type="submit"] {
 }
 .signin {
   text-align: center;
+  text-decoration: underline;
 }
 .formd {
   margin: 0 auto;
@@ -136,4 +141,7 @@ table {
   list-style-type: none;
   text-align: center;
   color: #4CAF50;
+}
+.emailbtn{
+  margin-top: 5em;
 }
