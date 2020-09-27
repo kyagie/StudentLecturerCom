@@ -90,6 +90,6 @@ def update(request, id):
     return render(request, 'edit.html', {'student': student})
 
 def delete(request, id):
-    student = Student.objects(id=id)
+    student = Student.objects.get(id=id)
     student.delete()
     return redirect("/show")
