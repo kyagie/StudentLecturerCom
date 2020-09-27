@@ -48,7 +48,7 @@ input[type="text"] {
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid rgb(166, 166, 211);
   font-family: "Roboto Condensed", sans-serif;
 }
 
@@ -58,7 +58,7 @@ input[type="number"] {
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid rgb(166, 166, 211);
   font-family: "Roboto Condensed", sans-serif;
 }
 
@@ -68,7 +68,7 @@ input[type="email"] {
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid rgb(166, 166, 211);
   font-family: "Roboto Condensed", sans-serif;
 }
 input[type="password"] {
@@ -77,7 +77,7 @@ input[type="password"] {
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid rgb(166, 166, 211);
   font-family: "Roboto Condensed", sans-serif;
 }
 input[type="submit"] {

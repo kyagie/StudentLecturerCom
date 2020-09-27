@@ -33,8 +33,10 @@
         <form method="post" action="{% url 'loginn' %}">
           {% csrf_token %}
           <div class="inputdiv">
+            <label for="username">Username</label>
             <input type="text" name="username" placeholder="Your username" />
             <br />
+            <label for="password">Password</label>
             <input
               type="password"
               name="password"

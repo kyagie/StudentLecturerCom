@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   {% block title %}
   <title>Sign Up</title>
@@ -32,16 +31,22 @@
         <form method="POST">
           {% csrf_token %}
           <div class="inputdiv">
+            <label for="username">Username</label>
             <input required type="text" name="username" placeholder="Your username" />
             <br />
+            <label for="first_name">First Name</label>
             <input required type="text" name="first_name" placeholder="Your First Name" />
             <br />
+            <label for="last_name">Last Name</label>
             <input required type="text" name="last_name" placeholder="Your Last Name" />
             <br />
+            <label for="email">Email Address</label>
             <input required type="email" name="email" placeholder="Your Email" />
             <br />
+            <label for="first_name">Password</label>
             <input required type="password" name="password1" placeholder="Password" />
             <br />
+            <label for="first_name">Password Confirmation</label>
             <input required type="password" name="password2" placeholder="Password Confirmation" />
             <br />
           </div>
