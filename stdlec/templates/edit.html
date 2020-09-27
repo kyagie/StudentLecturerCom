@@ -24,39 +24,36 @@
                 </ul>
             </div>
         </div>
-        <div class="fmain">
-      <h1 class="signin">Edit Student</h1>
-            <div class="formd">
-                <form method="POST" action="/update/{{ student.id }}">
-                    {% csrf_token %}
-                    <div class="inputdiv">
-                        <label for="sfname">First Name</label>
-                        <input required type="text" name="sfname" placeholder="First Name"
-                            value="{{ student.sfname }}" />
-                        <br />
-                        <label for="slname">Last Name</label>
-                        <input required type="text" name="slname" placeholder="Last Name"
-                            value="{{ student.slname }}" />
-                        <br />
-                        <label for="sregno">Registration Number</label>
-                        <input required type="text" name="sregno" placeholder="Registration Number"
-                            value="{{ student.sregno }}" />
-                        <br />
-                        <label for="semail">Email Address</label>
-                        <input required type="email" name="semail" placeholder="Email" value="{{ student.semail }}" />
-                        <br />
-                        <label for="sfname">Phone Number</label>
-                        <input required type="text" name="scontact" placeholder="Contact"
-                            value="{{ student.scontact }}" />
-                        <br />
-                        <label for="sfname">Course</label>
-                        <input required type="text" name="scourse" placeholder="Course"
-                            value="{{ student.scourse }}" />
-                        <br />
-                    </div>
-                    <input type="submit" value="Update" />
-                </form>
-            </div>
+    </div>
+
+    <div class="fmain">
+        <h1 class="signin">Edit Student</h1>
+        <div class="formd">
+            <form method="POST" action="/update/{{ student.id }}">
+                {% csrf_token %}
+                <div class="inputdiv">
+                    <label for="sfname">First Name</label>
+                    <input required type="text" name="sfname" placeholder="First Name" value="{{ student.sfname }}" />
+                    <br />
+                    <label for="slname">Last Name</label>
+                    <input required type="text" name="slname" placeholder="Last Name" value="{{ student.slname }}" />
+                    <br />
+                    <label for="sregno">Registration Number</label>
+                    <input required type="text" name="sregno" placeholder="Registration Number"
+                        value="{{ student.sregno }}" />
+                    <br />
+                    <label for="semail">Email Address</label>
+                    <input required type="email" name="semail" placeholder="Email" value="{{ student.semail }}" />
+                    <br />
+                    <label for="sfname">Phone Number</label>
+                    <input required type="number" name="scontact" placeholder="Contact" value="{{ student.scontact }}" />
+                    <br />
+                    <label for="sfname">Course</label>
+                    <input required type="text" name="scourse" placeholder="Course" value="{{ student.scourse }}" />
+                    <br />
+                </div>
+                <input type="submit" value="Update" />
+            </form>
         </div>
     </div>
 </body>

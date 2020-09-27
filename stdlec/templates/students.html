@@ -23,34 +23,35 @@
                 </ul>
             </div>
         </div>
-        <div class="fmain">
-      <h1 class="signin">Add Student</h1>
-            <div class="formd">
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="inputdiv">
-                        <label for="sfname">First Name</label>
-                        <input required type="text" name="sfname" placeholder="First Name" />
-                        <br />
-                        <label for="slname">Last Name</label>
-                        <input required type="text" name="slname" placeholder="Last Name" />
-                        <br />
-                        <label for="sregno">Registration Number</label>
-                        <input required type="text" name="sregno" placeholder="Registration Number" />
-                        <br />
-                        <label for="email">Email</label>
-                        <input required type="email" name="semail" placeholder="Email" />
-                        <br />
-                        <label for="scontact">Phone Number</label>
-                        <input required type="number" name="scontact" placeholder="Contact" />
-                        <br />
-                        <label for="scourse">Course</label>
-                        <input required type="text" name="scourse" placeholder="Course" />
-                        <br />
-                    </div>
-                    <input type="submit" value="Register" />
-                </form>
-            </div>
+    </div>
+
+    <div class="fmain">
+        <h1 class="signin">Add Student</h1>
+        <div class="formd">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="inputdiv">
+                    <label for="sfname">First Name</label>
+                    <input required type="text" name="sfname" placeholder="First Name" />
+                    <br />
+                    <label for="slname">Last Name</label>
+                    <input required type="text" name="slname" placeholder="Last Name" />
+                    <br />
+                    <label for="sregno">Registration Number</label>
+                    <input required type="text" name="sregno" placeholder="Registration Number" />
+                    <br />
+                    <label for="email">Email</label>
+                    <input required type="email" name="semail" placeholder="Email" />
+                    <br />
+                    <label for="scontact">Phone Number</label>
+                    <input required type="number" name="scontact" placeholder="Contact" />
+                    <br />
+                    <label for="scourse">Course</label>
+                    <input required type="text" name="scourse" placeholder="Course" />
+                    <br />
+                </div>
+                <input type="submit" value="Register" />
+            </form>
         </div>
     </div>
 
