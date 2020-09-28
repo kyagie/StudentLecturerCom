@@ -27,35 +27,55 @@
     </div>
   </div>
 
-    <div class="fmain">
-      <h1 class="signin">Sign Up</h1>
-      <div class="formd">
-        <form method="POST">
-          {% csrf_token %}
-          <div class="inputdiv">
-            <label for="username">Username</label>
-            <input required type="text" name="username" placeholder="Your username" />
-            <br />
-            <label for="first_name">First Name</label>
-            <input required type="text" name="first_name" placeholder="Your First Name" />
-            <br />
-            <label for="last_name">Last Name</label>
-            <input required type="text" name="last_name" placeholder="Your Last Name" />
-            <br />
-            <label for="email">Email Address</label>
-            <input required type="email" name="email" placeholder="Your Email" />
-            <br />
-            <label for="first_name">Password</label>
-            <input required type="password" name="password1" placeholder="Password" />
-            <br />
-            <label for="first_name">Password Confirmation</label>
-            <input required type="password" name="password2" placeholder="Password Confirmation" />
-            <br />
-          </div>
-          <input type="submit" value="Register" />
-        </form>
-      </div>
+  <div class="fmain">
+    <h1 class="signin">Sign Up</h1>
+    <div class="formd">
+      <form method="POST">
+        {% csrf_token %}
+        <div class="inputdiv">
+          <label for="username">Username</label>
+          <input required type="text" name="username" placeholder="Your username"
+            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" />
+          <br />
+          <label for="first_name">First Name</label>
+          <input required type="text" name="first_name" placeholder="Your First Name" pattern="[a-zA-Z]+"
+            title="Should contain letters only" />
+          <br />
+          <label for="last_name">Last Name</label>
+          <input required type="text" name="last_name" placeholder="Your Last Name" pattern="[a-zA-Z]+"
+            title="Should contain letters only" />
+          <br />
+          <label for="email">Email Address</label>
+          <input required type="email" name="email" placeholder="Your Email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Should follow valid Email pattern" />
+          <br />
+          <label for="first_name">Password</label>
+          <input required type="password" name="password1" id="password" placeholder="Password" onkeyup="check()" />
+          <br />
+          <label for="first_name">Password Confirmation</label>
+          <input required type="password" name="password2" id="confirm_password" placeholder="Password Confirmation" onkeyup="check()" />
+          <span id='message'></span>
+          <br />
+        </div>
+        <input type="submit" id="submit" value="Register" />
+      </form>
     </div>
+  </div>
 </body>
+<script>
+  var check = function () {
+    if (document.getElementById('password').value ==
+      document.getElementById('confirm_password').value) {
+      document.getElementById('message').style.color = 'green';
+      document.getElementById('submit').disabled = false;
+
+      document.getElementById('message').innerHTML = 'Passwords Match';
+    } else {
+      document.getElementById('message').style.color = 'red';
+      document.getElementById('submit').disabled = true;
+      document.getElementById('message').innerHTML = 'Passwords are not matching';
+    }
+  }
+</script>
 
 </html>
