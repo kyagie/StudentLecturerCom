@@ -1,0 +1,1 @@
+web: gunicorn StudentLecturerCoSystem.wsgi --log-file -
