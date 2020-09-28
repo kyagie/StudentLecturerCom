@@ -3,6 +3,9 @@
   margin: 0 10em;
   font-family: "Roboto Condensed", sans-serif;
 }
+body{
+  background-color: rgb(218, 218, 218);
+}
 .fmain {
   /* border: 1px solid red; */
   font-family: "Roboto Condensed", sans-serif;
