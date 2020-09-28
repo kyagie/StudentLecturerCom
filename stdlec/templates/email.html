@@ -40,7 +40,8 @@
                 {% csrf_token %}
                 <div class="inputdiv">
                     <label for="email">Email Address</label>
-                    <input required type="email" name="recipient_list" placeholder="Email" />
+                    <input required type="email" name="recipient_list" placeholder="Email"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Should follow valid Email pattern" />
                     <br />
                     <label for="subject">Subject</label>
                     <input required type="text" name="subject" placeholder="Subject" />

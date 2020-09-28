@@ -65,6 +65,15 @@ input[type="number"] {
   border-bottom: 1px solid rgb(166, 166, 211);
   font-family: "Roboto Condensed", sans-serif;
 }
+input[type="tel"] {
+  width: 100%;
+  padding: 20px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid rgb(166, 166, 211);
+  font-family: "Roboto Condensed", sans-serif;
+}
 
 input[type="email"] {
   width: 100%;
