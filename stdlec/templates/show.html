@@ -56,7 +56,7 @@
                         <td>{{ student.scourse }}</td>
                         <td>{{ student.scontact }}</td>
                         <td>
-                            <a href="/edit/{{ student.id }}">Edit</a>
+                            <a class="add" href="/edit/{{ student.id }}">Edit</a>
                             <a href="/delete/{{ student.id }}"> Delete</a>
                         </td>
                     </tr>
@@ -66,8 +66,8 @@
             <br>
             <br>
             <div class="link">
-                <button>
-                    <a href="/students">Add New Record</a>
+                <button onclick="document.location='/students'">
+                    Add New Record
                 </button>
             </div>
         </div>

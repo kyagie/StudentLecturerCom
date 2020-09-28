@@ -6,10 +6,13 @@ from .forms import RegisterForm, SendEmailForm, StudentForm
 from .models import Student
 from django.core.mail import BadHeaderError, send_mail, EmailMessage
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
+
 
 
 
 # Create your views here.
+@csrf_exempt
 def loginn(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
@@ -20,14 +23,17 @@ def loginn(request):
     else:
         return HttpResponse("User not found")
 
+@csrf_exempt
 def index(request):
     template = loader.get_template('index.html')
     return HttpResponse(template.render())
 
+@csrf_exempt
 def landing(request):
     template = loader.get_template('landing.html')
     return HttpResponse(template.render())
-    
+
+@csrf_exempt 
 def emailView(request):
     if request.method == 'GET':
         form = SendEmailForm()
@@ -50,6 +56,7 @@ def emailView(request):
             return redirect('email')
     return render(request, "email.html", {'form': form})
 
+@csrf_exempt
 def student(response):
     if response.method == 'POST':
         form = StudentForm(response.POST)
@@ -61,6 +68,7 @@ def student(response):
 
     return render(response, "students.html", {"form": form})
 
+@csrf_exempt
 def register(response):
     if response.method == "POST":
 	    form = RegisterForm(response.POST)
@@ -73,6 +81,7 @@ def register(response):
 
     return render(response, "registration/register.html", {"form":form})
 
+@csrf_exempt
 def show(request):
     students = Student.objects.all()
     return render(request, "show.html", {'students': students})
@@ -81,6 +90,7 @@ def edit(request, id):
     student = Student.objects.get(id=id)
     return render(request, 'edit.html', {'student': student})
 
+@csrf_exempt
 def update(request, id):
     student = Student.objects.get(id=id)
     form = StudentForm(request.POST, instance=student)
@@ -89,6 +99,7 @@ def update(request, id):
         return redirect("/show")
     return render(request, 'edit.html', {'student': student})
 
+@csrf_exempt
 def delete(request, id):
     student = Student.objects.get(id=id)
     student.delete()
