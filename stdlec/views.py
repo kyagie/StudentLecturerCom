@@ -52,7 +52,7 @@ def emailView(request):
                 messages.info(request, 'Email Not Sent!')
                 return HttpResponse('Invalid header found')
             
-            messages.info(request, 'Email Sent Successfully!')
+            messages.info(request, 'Email Sent!')
             return redirect('email')
     return render(request, "email.html", {'form': form})
 
