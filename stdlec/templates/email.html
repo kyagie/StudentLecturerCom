@@ -47,7 +47,7 @@
                     <input required type="text" name="subject" placeholder="Subject" />
                     <br />
                     <label for="message">Message</label>
-                    <input required type="text" name="message" placeholder="Your Message" />
+                    <textarea name="message" required placeholder="Your Message" cols="92" rows="20"></textarea>
                     <br />
                     <label for="attachment">Attach a file</label>
                     <br />
@@ -61,11 +61,3 @@
 </body>
 
 </html>
-
-<!-- <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div class="form-actions">
-        <button type="submit">Send</button>
-    </div>
-</form> -->
