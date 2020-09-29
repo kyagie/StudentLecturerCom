@@ -7,9 +7,7 @@ from .models import Student
 from django.core.mail import BadHeaderError, send_mail, EmailMessage
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
-
-
-
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 @csrf_exempt
@@ -29,7 +27,10 @@ def index(request):
     return HttpResponse(template.render())
 
 @csrf_exempt
+@login_required(login_url='/accounts/login/')
 def landing(request):
+    if not request.user.is_authenticated:
+        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
     template = loader.get_template('landing.html')
     return HttpResponse(template.render())
 
