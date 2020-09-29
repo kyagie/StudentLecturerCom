@@ -50,7 +50,7 @@
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Should follow valid Email pattern" />
           <br />
           <label for="first_name">Password</label>
-          <input required type="password" name="password1" id="password" placeholder="Password" onkeyup="check()" />
+          <input required type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Password should include UpperCase, LowerCase and Number characters" name="password1" id="password" placeholder="Password" onkeyup="check()" />
           <br />
           <label for="first_name">Password Confirmation</label>
           <input required type="password" name="password2" id="confirm_password" placeholder="Password Confirmation" onkeyup="check()" />
